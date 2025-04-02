@@ -31,9 +31,10 @@ public class UserController {
 	
 	@PostMapping("/criar")
 	public ResponseEntity<UserEntity> criar(@RequestBody UserEntity userr){
-		UserEntity usuarioSalvo = UserRepository.save(userr);
+		
 		userr.setUserPassword(DigestUtils.md5DigestAsHex(userr.getUserPassword().getBytes()));
-		return ResponseEntity.ok(usuarioSalvo);
+		UserEntity usuarioSalvo = UserRepository.save(userr);
+			return ResponseEntity.ok(usuarioSalvo);
 		
 	}
 	
@@ -43,7 +44,7 @@ public class UserController {
 	      return UserRepository.findById(id)
 	              .map(ResponseEntity::ok)
 	              .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-	  }
+	}
 	  
 		
 	@GetMapping("/listar")
