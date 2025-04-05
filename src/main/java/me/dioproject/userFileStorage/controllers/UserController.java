@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.dioproject.userFileStorage.entities.UserEntity;
-import me.dioproject.userFileStorage.repositories.FileRepository;
 import me.dioproject.userFileStorage.repositories.UserRepository;
 
 @RestController
@@ -25,9 +24,6 @@ public class UserController {
 
 	@Autowired
 	private UserRepository UserRepository;
-	
-	@Autowired
-	private FileRepository FileRepository;
 	
 	@PostMapping("/criar")
 	public ResponseEntity<UserEntity> criar(@RequestBody UserEntity userr){
@@ -39,11 +35,11 @@ public class UserController {
 	}
 	
 
-	  @GetMapping("/buscar/{id}")
-	  public ResponseEntity<?> buscar(@PathVariable Long id) {
-	      return UserRepository.findById(id)
-	              .map(ResponseEntity::ok)
-	              .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+	@GetMapping("/buscar/{id}")
+	public ResponseEntity<?> buscar(@PathVariable Long id) {
+	    return UserRepository.findById(id)
+	            .map(ResponseEntity::ok)
+	            .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 	  
 		

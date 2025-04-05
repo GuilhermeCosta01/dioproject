@@ -18,9 +18,9 @@ public class OpenAPIConfig {
                         .version("1.0")
                         .description("Documentação da API para gerenciamento de usuários e arquivos.")
                         .contact(new Contact()
-                                .name("Seu Nome")
-                                .email("email@meusite.com.br")
-                                .url("https://www.meusite.com.br")
+                                .name("Guilherme Costa")
+                                .email("guilecosta@gmail.com")
+                                .url("https://www.guilhermecostadev.com.br")
                         )
                 );
     }

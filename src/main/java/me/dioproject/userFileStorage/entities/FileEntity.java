@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
@@ -16,6 +17,7 @@ public class FileEntity {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long fileId;
 	
+	@NotBlank
 	@Column(unique=true)
 	private String Filename;
 	
@@ -24,37 +26,4 @@ public class FileEntity {
 	@ManyToOne()
 	private UserEntity user;
 
-	public UserEntity getUser() {
-		return user;
 	}
-
-	public void setUser(UserEntity user) {
-		this.user = user;
-	}
-
-	public Long getFileId() {
-		return fileId;
-	}
-
-	public void setFileId(Long fileId) {
-		this.fileId = fileId;
-	}
-
-	public String getFilename() {
-		return Filename;
-	}
-
-	public void setFilename(String filename) {
-		Filename = filename;
-	}
-
-	public String getFileDescription() {
-		return fileDescription;
-	}
-
-	public void setFileDescription(String fileDescription) {
-		this.fileDescription = fileDescription;
-	}
-
-	
-}
